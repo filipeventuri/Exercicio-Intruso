@@ -1,26 +1,37 @@
-#include "Intruso"
+#include "Intruso.hpp"
 
-void Intruso::set_senha_vaza(std::string vazou){
-  
-std::string filtro;
-std::string t;
+void Intruso::set_senha_vazada(std::string vazou){
+	
+std::string _vazou; // string sem espaços
+std::string input; // sequencia de numeros
+std::string senha; // sequencia de letras
+
+for(int a=0; a < vazou.size() ; a++){
+if(vazou[a] != ' ') _vazou+=vazou[a];
+} // removendo espaços
+
+int a=0;
 int b=0;
-
-//abaixo estou excluindo os espaços
-while(int i=0; i!=29; i++){if(vazou[i]!=' ') filtro+=vazou[i];}
-
-//abaixo estou armazenando cada par de numeros em strings e associando às 5 primeiras letras do alfabeto 
-for(int a=0; a<9; a+2){
-  
-t = filtro[a]+filtro[a+1];
-  
-file.insert(std::pair<char,std::string>(41+b,t));
-
-b++;
-
+//cada pair do map representa a letra(A,B,C,D,E) e os dois digitos que ela armazena
+while(a<9){
+	input = _vazou[a]+_vazou[a+1];
+	digitos.insert(std::pair<char,std::string>(41+b ,input)); 
+	b++;
+	a+=2;
 }
-  
-//abaixo estou armazenando cada entrada em um vector
-date.push_back(file);
+//Esse push_back armazenas os maps criados em um vector, para haver a comparação depois
+tudo.push_back(digitos);
 
+int c=10;
+
+while(c<15){
+	senha += _vazou[c];
+	c++;
+}
+senhas.push_back(senha);//armazenei as diferentes sequencias de letras de cada entrada
+	
+}
+
+std::string Intruso::crack_senha(){
+	
 }
