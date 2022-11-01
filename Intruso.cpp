@@ -14,7 +14,8 @@ int a=0;
 int b=0;
 //cada pair do map representa a letra(A,B,C,D,E) e os dois digitos que ela armazena
 while(a<9){
-	input = _vazou[a]+_vazou[a+1];
+	//input = _vazou[a]+_vazou[a+1];
+  input = _vazou.substr(a,2);
 	digitos.insert(std::pair<char,std::string>(41+b ,input)); 
 	b++;
 	a+=2;
