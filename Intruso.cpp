@@ -11,6 +11,7 @@ for(int a=0; a < vazou.size() ; a++){
 if(vazou[a] != ' ') _vazou+= vazou.substr(a,1);
 } // removendo espaços
 
+
 int a=0;
 int b=0;
 //cada pair do map representa a letra(A,B,C,D,E) e os dois digitos que ela armazena
@@ -30,7 +31,7 @@ tudo.push_back(digitos);
 int c=10;
 
 while(c<16){
-	senha += _vazou[c];
+	senha += _vazou.substr(c,1);
 	c++;
 }
 senhas.push_back(senha);//armazenei as diferentes sequencias de letras de cada entrada
@@ -44,9 +45,9 @@ std::string password;
 std::string str;
 
 int n=senhas.size();
-int count[n][2*n];
+int count[n][6];
 for(int u=0; u < n; u++){
-for(int i=0;i<(2*n);i++){
+for(int i=0;i<6;i++){
 		count[u][i]=0;
 	}
 }
@@ -54,7 +55,7 @@ int c=0;
 int y=0;
 for(auto b : tudo){
 std::string teste = senhas[c];
-for(int a = 0; a<(2*n); a++ ){
+for(int a = 0; a<6; a++ ){
 	
 	count[y][a] = stoi(b[teste[a]]);
 		}
@@ -65,17 +66,18 @@ for(int a = 0; a<(2*n); a++ ){
 	
 
 
-for(int i=0;i<(2*n);i++){
+for(int i=0;i<6;i++){
     for(int u=0; u < n; u++){
 		str+= std::to_string(count[u][i]);
 	}
+
 	
 	for(int i = 0; str[i]!='\0'; i++){
 	int contador=0;
 	for(int u= 0; str[u]!='\0'; u++){
 	if(str[i]==str[u]){ 
 	contador++;
-	if(contador==n){ p += str.substr(i,1); break;}
+	if(contador==n){ p += str.substr(i,1);}
 	}
 	
 	}
@@ -85,7 +87,8 @@ for(int i=0;i<(2*n);i++){
 	
 	str.clear();
 }
-password = p.substr(0,1) + ' ' + p.substr(3,1) + ' ' + p.substr(6,1)+ ' ' + p.substr(9,1)+ ' ' + p.substr(12,1)+ ' ' + p.substr(15,1);
+if(n==3)password = p.substr(0,1) + ' ' + p.substr(3,1) + ' ' + p.substr(6,1)+ ' ' + p.substr(9,1)+ ' ' + p.substr(12,1)+ ' ' + p.substr(15,1);
+if(n==2)password = p.substr(0,1) + ' ' + p.substr(2,1) + ' ' + p.substr(4,1)+ ' ' + p.substr(6,1)+ ' ' + p.substr(8,1)+ ' '+ p.substr(10,1);
 
-return password;  //0,3,6,9,12,15
-	}	
+return password;  
+	}		
