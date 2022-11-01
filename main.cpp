@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Intruso.hpp"
+#include "intruso.hpp"
 
 int main(){
     int num_entradas, i;

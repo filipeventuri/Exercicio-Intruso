@@ -9,9 +9,9 @@
 class Intruso{
 
     private:
-      std::map<char,std::string> digitos;
-	  std::vector<std::map<char, std::string> > tudo;
+      std::vector<std::map<char, std::string> > tudo;
 	  std::vector<std::string> senhas;
+      
     public:
       Intruso()=default;
       void set_senha_vazada(std::string vazou);
