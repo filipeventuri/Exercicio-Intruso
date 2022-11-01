@@ -59,13 +59,13 @@ std::string Intruso::crack_senha(){
 		comparado = y[x[i]];//string com os dois numeros do char i (conteúdo do second. do map)
 		comparante = t[r[i]];//string com dois numeros do char i (conteúdo do second. do map)
 		
-		if(comparar[0]==comparado[0] | comparar[0]==comparado[1] ){
-			if(comparar[0]==comparante[0] | comparar[0]==comparante[1]){
+		if(comparar[0]==comparado[0] || comparar[0]==comparado[1] ){
+			if(comparar[0]==comparante[0] || comparar[0]==comparante[1]){
 			result += comparar[0] + ' ';
 			}
-		}else if(comparar[1]==comparado[0] | comparar[1]==comparado[1]){
-			if(comparar[1]==comparante[0] | comparar[1]==comparante[1]){
-			result = comparar[1] + ' ';
+		}else if(comparar[1]==comparado[0] || comparar[1]==comparado[1]){
+			if(comparar[1]==comparante[0] || comparar[1]==comparante[1]){
+			result += comparar[1] + ' ';
 			}
 	    }//esses if acima serviram pra comparar os digito numero i da primeira senha com o digito numero i da segunda senha e da terceira
 		
@@ -83,10 +83,10 @@ std::string Intruso::crack_senha(){
 			
 	comparar = delta[omega[i]];//string com os dois numeros do char i (conteúdo do second. do map)
 	comparado = y[x[i]];//string com os dois numeros do char i (conteúdo do second. do map)
-	if(comparar[0]==comparado[0] | comparar[0]==comparado[1]){
+	if(comparar[0]==comparado[0] || comparar[0]==comparado[1]){
 			result += comparar[0] + ' ';
-	}else if(comparar[1]==comparado[0] | comparar[1]==comparado[1]){
-			result = comparar[1] + ' ';
+	}else if(comparar[1]==comparado[0] || comparar[1]==comparado[1]){
+			result += comparar[1] + ' ';
 	}
 	
 	}// esse for serviu para comparar descobrir cada digito tomando como parametro a primeira senha em relação as demais
