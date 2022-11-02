@@ -65,7 +65,8 @@ for(int a = 0; a<6; a++ ){
 	}
 	
 
-
+// - [] Teste de tarefa 
+	
 for(int i=0;i<6;i++){
     for(int u=0; u < n; u++){
 		str+= std::to_string(count[u][i]);
